@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="FW.API/FW.API.csproj" />
+  <Project Path="FW.Application/FW.Application.csproj" />
+  <Project Path="FW.Domain/FW.Domain.csproj" />
+  <Project Path="FW.Infrastructure/FW.Infrastructure.csproj" />
+</Solution>
