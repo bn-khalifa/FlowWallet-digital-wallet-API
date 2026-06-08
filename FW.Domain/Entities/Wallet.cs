@@ -62,7 +62,7 @@ namespace FW.Domain
             Balance -= amount;
         }
 
-        public void DepitTransfer(decimal amount)
+        public void DebitTransfer(decimal amount)
         {
             try
             {
