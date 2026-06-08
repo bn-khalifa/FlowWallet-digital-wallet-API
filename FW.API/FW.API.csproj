@@ -15,4 +15,8 @@
     <ProjectReference Include="..\FW.Application\FW.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
