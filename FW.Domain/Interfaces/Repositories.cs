@@ -1,4 +1,4 @@
-﻿namespace FW.Domain.Repositories;
+﻿namespace FW.Domain;
 
 public interface IUserRepository
 {
