@@ -5,7 +5,7 @@ namespace FW.Application;
 public interface IWalletService
 {
     Task<ApiResponse<WalletDto>> GetMyWalletAsync(Guid userId, CancellationToken ct = default);
-    Task<ApiResponse<WalletDto>> UpdateDailyLimitAsync(Guid userId, UpdateDailyLimitRequest request, CancellationToken ct = default);
+    //Task<ApiResponse<WalletDto>> UpdateDailyLimitAsync(Guid userId, UpdateDailyLimitRequest request, CancellationToken ct = default);
 }
 
 // Implementation 
@@ -20,16 +20,16 @@ public class WalletService(IWalletRepository walletRepo, IUnitOfWork uow) : IWal
         return ApiResponse<WalletDto>.Ok(ToDto(wallet));
     }
 
-    public async Task<ApiResponse<WalletDto>> UpdateDailyLimitAsync(Guid userId, UpdateDailyLimitRequest request, CancellationToken ct = default)
-    {
-        var wallet = await walletRepo.GetByUserIdAsync(userId, ct)
-            ?? throw new NotFoundException("Wallet", userId);
+    //public async Task<ApiResponse<WalletDto>> UpdateDailyLimitAsync(Guid userId, UpdateDailyLimitRequest request, CancellationToken ct = default)
+    //{
+    //    var wallet = await walletRepo.GetByUserIdAsync(userId, ct)
+    //        ?? throw new NotFoundException("Wallet", userId);
 
-        wallet.UpdateDailyLimit(request.NewLimit);
-        await uow.SaveChangesAsync(ct);
+    //    wallet.UpdateDailyLimit(request.NewLimit);
+    //    await uow.SaveChangesAsync(ct);
 
-        return ApiResponse<WalletDto>.Ok(ToDto(wallet), "Daily limit updated.");
-    }
+    //    return ApiResponse<WalletDto>.Ok(ToDto(wallet), "Daily limit updated.");
+    //}
 
     private static WalletDto ToDto(Wallet w) => new(
         w.Id,

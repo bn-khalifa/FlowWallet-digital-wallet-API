@@ -29,7 +29,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         {
             e.HasKey(x => x.Id);
             e.Property(x => x.Balance).HasPrecision(18, 2);
-            e.Property(x => Wallet.DailyTransferLimit).HasPrecision(18, 2);
+            //e.Property(x => Wallet.DailyTransferLimit).HasPrecision(18, 2);
             e.Property(x => x.DailyTransferUsed).HasPrecision(18, 2);
             e.HasOne(x => x.User)
                 .WithOne(x => x.Wallet)

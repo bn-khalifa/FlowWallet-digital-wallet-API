@@ -7,7 +7,7 @@ namespace FW.Domain
         public Guid Id { get; private set; }
         public Guid UserId { get; private set; }
         public decimal Balance { get; private set; }
-        public static decimal DailyTransferLimit { get; private set; } = 10_000m;
+        public const decimal DailyTransferLimit = 10_000m;
         public decimal DailyTransferUsed { get; private set; }
         public DateTime DailyLimitResetDate { get; private set; }
         public bool IsActive { get; private set; } = true;
@@ -88,11 +88,11 @@ namespace FW.Domain
             Balance += amount;
         }
 
-        public void UpdateDailyLimit(decimal newLimit)
-        {
-            if (newLimit <= 0) throw new DomainException("Daily limit must be positive.");
-            DailyTransferLimit = newLimit;
-        }
+        //public void UpdateDailyLimit(decimal newLimit)
+        //{
+        //    if (newLimit <= 0) throw new DomainException("Daily limit must be positive.");
+        //    DailyTransferLimit = newLimit;
+        //}
 
         public void IsValid(decimal amount, bool withdraw)
         {
